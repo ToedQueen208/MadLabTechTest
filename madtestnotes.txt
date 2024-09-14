@@ -1,0 +1,9 @@
+Read thru doc and planned out what to do
+read this link to remember how to do get requests again
+https://www.freecodecamp.org/news/javascript-get-request-tutorial/
+
+if using this method its asycnhronoius and didnt need other packlages installed
+
+
+
+
