@@ -31,15 +31,13 @@ function getData(p)
 })
   .then((json) => { 
     console.log("Searching page " + pagenum + " of the index");
-    console.log(subjectsUpperCase(json))
+   // console.log(subjectsUpperCase(json))
     //console.log(sortJSON(json)) 
-    
+    console.log(filterage(json))
     // console.log(parseJSON(json));
     });
 
 }
-
-
     
 function parseJSON(json)
 {
@@ -78,7 +76,24 @@ function bookIDComparator(a, b)
 }
 
 
-function filterage(){
+function filterage(json){
+//
+  let results = json.results;
+  let answer = [];
+  let currentYear = new Date().getFullYear();
+results.forEach((item) => {
+     //console.log(item.authors)
+    let filtered = item.authors.filter(autherYear => {
+     return currentYear - autherYear.birth_year <= 200
+    });
+    answer.push(...filtered)
+   console.log(answer)
+  })
+
+// answer.push(item.subjects)
+
+  //console.log(item.subjects)
+  
 
 }
 
@@ -107,6 +122,7 @@ results.forEach(element => {
 //console.log(newResults) 
 
 }
+
 function upperCase(element){
 
   return element.upperCase();
