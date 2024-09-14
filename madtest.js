@@ -31,7 +31,8 @@ function getData(p)
 })
   .then((json) => { 
     console.log("Searching page " + pagenum + " of the index");
-    console.log(sortJSON(json)) 
+    console.log(subjectsUpperCase(json))
+    //console.log(sortJSON(json)) 
     
     // console.log(parseJSON(json));
     });
@@ -74,4 +75,39 @@ let sorted = results.sort(bookIDComparator)
 function bookIDComparator(a, b)
 {
   return a.id - b.id
+}
+
+
+function filterage(){
+
+}
+
+
+function subjectsUpperCase(json){
+let results = json.results;
+let answer = [];
+results.forEach(item => {
+   item.subjects = item.subjects.map(i => {
+    return i.toUpperCase();
+  })
+ answer.push(item.subjects)
+
+  console.log(item.subjects)
+  
+}
+);
+return answer;
+/*
+results.forEach(element => {
+  console.log(element)
+});
+*/
+//console.log(results);
+//let newResults = results.map(upperCase);
+//console.log(newResults) 
+
+}
+function upperCase(element){
+
+  return element.upperCase();
 }
