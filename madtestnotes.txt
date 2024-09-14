@@ -4,6 +4,10 @@ https://www.freecodecamp.org/news/javascript-get-request-tutorial/
 
 if using this method its asycnhronoius and didnt need other packlages installed
 
-
+Rather than implementing my own sorting algorithm I used the inbuilt one from arrays.sort.
+As a library function this is likely more efficient than any algorithm I will have written, it also saves time rather than re-inventing the wheel.
+To use the library function you need to tell it how to compare objects. That is done using the bookIDComparator, which compares two objects (book results)
+by their ID fields.
+*/
 
 

@@ -31,7 +31,9 @@ function getData(p)
 })
   .then((json) => { 
     console.log("Searching page " + pagenum + " of the index");
-      console.log(parseJSON(json));
+    console.log(sortJSON(json)) 
+    
+    // console.log(parseJSON(json));
     });
 
 }
@@ -47,7 +49,7 @@ function parseJSON(json)
     //&& element.author == correctAuth
     if(element.title == correctTitle )
     {
-console.log("Found the book "+ element.title + " by " + element.authors.name[0] + "on page " + pagenum);
+console.log("Found the book "+ element.title + " by " + element.authors.name + "on page " + pagenum);
 
     }
   
@@ -59,3 +61,17 @@ console.log("Found the book "+ element.title + " by " + element.authors.name[0] 
    getData(pagenum);
 }
 
+function sortJSON(json){
+  let results = json.results;
+//let sorted = results.sort(function(a, b){return a.id - b.id})
+let sorted = results.sort(bookIDComparator)
+
+  sorted.forEach(element => {
+    console.log(element.id)
+  });
+}
+
+function bookIDComparator(a, b)
+{
+  return a.id - b.id
+}
