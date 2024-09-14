@@ -12,11 +12,9 @@ Using array.map, modify each item’s item.subjects[] entries to be uppercase.
 Using array.filter, remove all entries whose author didn’t exist within the last 200 years.
 */
 
-let pagenum = 11;
+let pagenum = 1;
 let correctTitle = "Short Stories";
 let correctAuth = "Dostoyevsky, Theodor"
-
-
 getData(pagenum);
 
 function getData(p)
@@ -33,28 +31,25 @@ function getData(p)
     console.log("Searching page " + pagenum + " of the index");
    // console.log(subjectsUpperCase(json))
     //console.log(sortJSON(json)) 
-    console.log(filterage(json))
-    // console.log(parseJSON(json));
+   // console.log(filterage(json))
+     console.log(parseJSON(json));
     });
 
 }
     
 function parseJSON(json)
 {
-
   //results is an array
   let results = json.results;
-  results.forEach(element => {
-    //&& element.author == correctAuth
+for(let element of results)
+  {
     if(element.title == correctTitle )
-    {
-console.log("Found the book "+ element.title + " by " + element.authors.name + "on page " + pagenum);
-
-    }
+      {
+          return element
+      }
+  }
+    //&& element.author == correctAuth didnt work :(
   
-
-
-  });
   console.log("unable to find book on page " + pagenum);
   pagenum +=1;
    getData(pagenum);
