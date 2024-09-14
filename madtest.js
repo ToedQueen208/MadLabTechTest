@@ -19,6 +19,16 @@ fetch("http://gutendex.com/books/?page=" + pagenum)
   .then((response) => response.json())
 
   .then((json) => { 
-      console.log(json)
+      console.log(parseJSON(json))
     });
+
+    
+function parseJSON(json)
+{
+  //results is an array
+  let results = json.results;
+  results.forEach(element => {
+    console.log(element.title)
+  });
+}
 
