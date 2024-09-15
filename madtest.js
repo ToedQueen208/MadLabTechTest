@@ -117,8 +117,9 @@ results.forEach(element => {
 //console.log(newResults) 
 
 }
-
+/*
 function upperCase(element){
 
   return element.upperCase();
 }
+*/
